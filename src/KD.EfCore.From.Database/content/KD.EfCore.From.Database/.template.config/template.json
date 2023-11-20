@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "David Kozma",
+  "classifications": [
+    "SQL",
+    "Database",
+    "SqlServer"
+  ],
+  "identity": "KD.EfCore.From.Database",
+  "name": "KD.EfCore.From.Database",
+  "shortName": "autodbef",
+  "tags": {
+    "language": "SQL",
+    "type": "project"
+  },
+  "sourceName": "Efsqlproj",
+  "preferNameDirectory": true,
+  "symbols": {
+    "target-platform": {
+      "type": "parameter",
+      "description": "Target SQL platform",
+      "datatype": "choice",
+      "defaultValue": "Sql160",
+      "replaces": "{TargetPlatform}",
+      "choices": [
+        {
+          "choice": "Sql130",
+          "description": "SQL Server 2016"
+        },
+        {
+          "choice": "Sql140",
+          "description": "SQL Server 2017"
+        },
+        {
+          "choice": "Sql150",
+          "description": "SQL Server 2019"
+        },
+        {
+          "choice": "Sql160",
+          "description": "SQL Server 2022/Azure SQL MI"
+        },
+        {
+          "choice": "SqlAzureV12",
+          "description": "Azure SQL Database"
+        },
+        {
+          "choice": "SqlDw",
+          "description": "Azure Synapse SQL"
+        },
+        {
+          "choice": "SqlServerless",
+          "description": "Azure Synapse SQL Serverless"
+        },
+        {
+          "choice": "SqlDwUnified",
+          "description": "Synapse Data Warehouse in Microsoft Fabric"
+        }
+      ]
+    }
+  }
+}

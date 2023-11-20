@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build">
+  <Sdk Name="Microsoft.Build.Sql" Version="0.1.12-preview" />
+  <PropertyGroup>
+    <Name>Database.Sdk</Name>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <ModelCollation>1033, CI</ModelCollation>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetFrameworkVersion>netstandard2.0</TargetFrameworkVersion>
+    <ProjectGuid>{$guid1$}</ProjectGuid>
+  </PropertyGroup>
+  <Target Name="CreateProjectDir" AfterTargets="Build" BeforeTargets="PostBuildEvent">
+    <Exec Command="if not exist &quot;$(SolutionDir)$(ProjectName).EfCore&quot; mkdir $(SolutionDir)$(ProjectName).EfCore" />
+  </Target>
+  <Target Name="CreateProject" AfterTargets="CreateProjectDir" BeforeTargets="PostBuildEvent">
+    <Exec Command="if not exist &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot; dotnet new classlib -n &quot;$(ProjectName).EfCore&quot; -o &quot;$(SolutionDir)$(ProjectName).EfCore&quot;" />
+  </Target>
+  <Target Name="SetUpProject" AfterTargets="CreateProject" BeforeTargets="PostBuildEvent">
+    <Exec Command="cd $(SolutionDir)$(ProjectName).EfCore" />
+    <Exec Command="if exist &quot;$(SolutionDir)$(ProjectName).EfCore\Class1.cs&quot; del &quot;$(SolutionDir)$(ProjectName).EfCore\Class1.cs&quot;" />
+    <Exec Command="dotnet add &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot; package Microsoft.EntityFrameworkCore" />
+    <Exec Command="dotnet add &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot; package Microsoft.EntityFrameworkCore.Design" />
+    <Exec Command="dotnet add &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot; package ErikEJ.EntityFrameworkCore.SqlServer.Dacpac" />
+    <Exec Command="dotnet sln &quot;$(SolutionDir)$(SolutionFileName)&quot; add --solution-folder &quot;$(SolutionFolder)&quot; &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot;" />
+  </Target>
+  <Target Name="RestoreTool" AfterTargets="SetUpProject" BeforeTargets="PostBuildEvent">
+    <Exec Command="dotnet tool restore" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>dotnet ef dbcontext scaffold "$(MSBuildProjectDirectory)\$(OutputPath)$(MSBuildThisFileName).dacpac" ErikEJ.EntityFrameworkCore.SqlServer.Dacpac --verbose --project "$(SolutionDir)$(MSBuildProjectName).EfCore\$(MSBuildProjectName).EfCore.csproj" --output-dir "Models" --force</PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include=".config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".config\dotnet-tools.json" />
+    <None Include=".config\efcpt-config.json" />
+  </ItemGroup>
+</Project>

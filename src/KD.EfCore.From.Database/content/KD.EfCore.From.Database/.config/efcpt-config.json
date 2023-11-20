@@ -1,0 +1,61 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/ErikEJ/EFCorePowerTools/master/samples/efcpt-schema.json",
+  "code-generation": {
+    "enable-on-configuring": false,
+    "type": "all",
+    "use-database-names": false,
+    "use-data-annotations": false,
+    "use-nullable-reference-types": true,
+    "use-inflector": false,
+    "use-legacy-inflector": false,
+    "use-many-to-many-entity": false,
+    "use-t4": false,
+    "t4-template-path": null,
+    "remove-defaultsql-from-bool-properties": false,
+    "soft-delete-obsolete-files": false,
+    "use-alternate-stored-procedure-resultset-discovery": false,
+    "merge-dacpacs": true
+  },
+  "names": {
+    "root-namespace": "Webshop.EfCore",
+    "dbcontext-name": "WebshopContext",
+    "dbcontext-namespace": null,
+    "model-namespace": null
+  },
+  "file-layout": {
+    "output-path": "Models",
+    "output-dbcontext-path": null
+  },
+  "tables": [
+    {
+      "name": "[dbo].[Cart]"
+    },
+    {
+      "name": "[dbo].[Currency]"
+    },
+    {
+      "name": "[dbo].[Log]"
+    },
+    {
+      "name": "[dbo].[Log_Parameter]"
+    },
+    {
+      "name": "[dbo].[Product]"
+    },
+    {
+      "name": "[dbo].[Product_Category]"
+    },
+    {
+      "name": "[dbo].[Product_Price]"
+    },
+    {
+      "name": "[dbo].[Stockpile]"
+    },
+    {
+      "name": "[dbo].[UserInfo]"
+    }
+  ],
+  "views": [],
+  "stored-procedures": [],
+  "functions": []
+}
