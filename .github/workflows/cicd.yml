@@ -26,10 +26,5 @@ jobs:
       run: dotnet build ./src/KD.EfCore.From.Database.sln --no-restore --configuration Release
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
-    #- name: Publish
-    #  run: dotnet nuget push ./src/KD.EfCore.From.Database/bin/Release/*.nupkg -k ${{ secrets.NUGET_APIKEY }} -s https://api.nuget.org/v3/index.json
-    - name: Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: artifacts
-        path: artifacts/**/*
+    - name: Publish
+      run: dotnet nuget push ./src/KD.EfCore.From.Database/bin/Release/*.nupkg -k ${{ secrets.NUGET_APIKEY }} -s https://api.nuget.org/v3/index.json
