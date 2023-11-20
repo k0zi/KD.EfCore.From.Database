@@ -34,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: artifacts
-        path: ./src/bin/Release/*.nupkg
+        path: /home/runner/work/KD.EfCore.From.Database/KD.EfCore.From.Database/src/KD.EfCore.From.Database/bin/Release/*.nupkg
