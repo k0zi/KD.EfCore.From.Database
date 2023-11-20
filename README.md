@@ -1,4 +1,4 @@
-[![CI/CD]](https://github.com/k0zi/KD.EfCore.From.Database/actions/workflows/cicd.yml)
+[![CI]](https://github.com/k0zi/KD.EfCore.From.Database/actions/workflows/ci.yml)
 
 ### What is this?
 
