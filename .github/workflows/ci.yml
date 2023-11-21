@@ -27,9 +27,9 @@ jobs:
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
     - name: Publish
-     env:
-       nuget_key: ${{ secrets.NUGET_APIKEY }}
-     run: dotnet nuget push ./src/KD.EfCore.From.Database/bin/Release/*.nupkg -k "$nuget_key" -s https://api.nuget.org/v3/index.json
+      env:
+        nuget_key: ${{ secrets.NUGET_APIKEY }}
+      run: dotnet nuget push ./src/KD.EfCore.From.Database/bin/Release/*.nupkg -k "$nuget_key" -s https://api.nuget.org/v3/index.json
     - name: Artifacts
       uses: actions/upload-artifact@v3
       with:
