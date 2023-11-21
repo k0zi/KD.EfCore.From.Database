@@ -19,7 +19,6 @@
     <Exec Command="dotnet add &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot; package Microsoft.EntityFrameworkCore" />
     <Exec Command="dotnet add &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot; package Microsoft.EntityFrameworkCore.Design" />
     <Exec Command="dotnet add &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot; package ErikEJ.EntityFrameworkCore.SqlServer.Dacpac" />
-    <Exec Command="dotnet sln &quot;$(SolutionDir)$(SolutionFileName)&quot; add --solution-folder &quot;$(SolutionFolder)&quot; &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot;" />
   </Target>
   <Target Name="RestoreTool" AfterTargets="SetUpProject" BeforeTargets="PostBuildEvent">
     <Exec Command="dotnet tool restore" />
@@ -27,6 +26,9 @@
   <PropertyGroup>
     <PostBuildEvent>dotnet ef dbcontext scaffold "$(MSBuildProjectDirectory)\$(OutputPath)$(MSBuildThisFileName).dacpac" ErikEJ.EntityFrameworkCore.SqlServer.Dacpac --verbose --project "$(SolutionDir)$(MSBuildProjectName).EfCore\$(MSBuildProjectName).EfCore.csproj" --output-dir "Models" --force</PostBuildEvent>
   </PropertyGroup>
+  <Target Name="AddToSolution" AfterTargets="PostBuildEvent" >
+    <Exec Command="dotnet sln &quot;$(SolutionDir)$(SolutionFileName)&quot; add --solution-folder &quot;$(SolutionFolder)&quot; &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot;" />
+  </Target>
   <ItemGroup>
     <Folder Include=".config" />
   </ItemGroup>
