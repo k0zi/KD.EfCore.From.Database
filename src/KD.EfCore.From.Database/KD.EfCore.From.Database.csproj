@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>KD.EfCore.From.Database</PackageId>
-    <PackageVersion>0.1.1</PackageVersion>
+    <PackageVersion>0.1.6</PackageVersion>
     <Title>KD.EfCore.From.Database</Title>
     <Authors>David Kozma</Authors>
     <Description>Generates an EfCore project on build from SDK sql project with EfTools Reverse engineering</Description>
@@ -19,6 +19,7 @@
     <LocalizeTemplates>false</LocalizeTemplates>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>nuspecicon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,12 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="content\**\*" Exclude="content\**\bin\**;content\**\obj\**" />
     <Compile Remove="**\*" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="content\KD.EfCore.From.Database\nuspecicon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,16 +35,18 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <Content Include=".config\dotnet-tools.json" Pack="true" PackagePath="content\.config\" />
+    <Content Include=".config\efcpt-config.json" />
+    <Content Include=".template.config\template.json" />
+    <Content Include="Efsqlproj.sqlproj" />
     <None Include="README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="content\KD.EfCore.From.Database\.config\dotnet-tools.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="content\KD.EfCore.From.Database\.config\efcpt-config.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Update="nuspecicon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

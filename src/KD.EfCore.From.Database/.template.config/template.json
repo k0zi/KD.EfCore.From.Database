@@ -7,7 +7,7 @@
     "SqlServer"
   ],
   "identity": "KD.EfCore.From.Database",
-  "name": "KD.EfCore.From.Database",
+  "name": "C# EfCore library from SQL database",
   "shortName": "autodbef",
   "tags": {
     "language": "SQL",

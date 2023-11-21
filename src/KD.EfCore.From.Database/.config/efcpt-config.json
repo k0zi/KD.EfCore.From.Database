@@ -17,44 +17,16 @@
     "merge-dacpacs": true
   },
   "names": {
-    "root-namespace": "Webshop.EfCore",
-    "dbcontext-name": "WebshopContext",
+    "root-namespace": "",
+    "dbcontext-name": "",
     "dbcontext-namespace": null,
     "model-namespace": null
   },
   "file-layout": {
-    "output-path": "Models",
+    "output-path": "",
     "output-dbcontext-path": null
   },
-  "tables": [
-    {
-      "name": "[dbo].[Cart]"
-    },
-    {
-      "name": "[dbo].[Currency]"
-    },
-    {
-      "name": "[dbo].[Log]"
-    },
-    {
-      "name": "[dbo].[Log_Parameter]"
-    },
-    {
-      "name": "[dbo].[Product]"
-    },
-    {
-      "name": "[dbo].[Product_Category]"
-    },
-    {
-      "name": "[dbo].[Product_Price]"
-    },
-    {
-      "name": "[dbo].[Stockpile]"
-    },
-    {
-      "name": "[dbo].[UserInfo]"
-    }
-  ],
+  "tables": [],
   "views": [],
   "stored-procedures": [],
   "functions": []

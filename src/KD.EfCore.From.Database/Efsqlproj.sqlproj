@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build">
-  <Sdk Name="Microsoft.Build.Sql" Version="0.1.12-preview" />
+  <Sdk Name="Microsoft.Build.Sql" Version="0.1.14-preview" />
   <PropertyGroup>
     <Name>Database.Sdk</Name>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <ModelCollation>1033, CI</ModelCollation>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <TargetFrameworkVersion>netstandard2.0</TargetFrameworkVersion>
-    <ProjectGuid>{$guid1$}</ProjectGuid>
   </PropertyGroup>
   <Target Name="CreateProjectDir" AfterTargets="Build" BeforeTargets="PostBuildEvent">
     <Exec Command="if not exist &quot;$(SolutionDir)$(ProjectName).EfCore&quot; mkdir $(SolutionDir)$(ProjectName).EfCore" />
