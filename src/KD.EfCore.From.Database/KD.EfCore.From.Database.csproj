@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>KD.EfCore.From.Database</PackageId>
-    <PackageVersion>0.1.7</PackageVersion>
+    <PackageVersion>1.0.0-rc1</PackageVersion>
     <Title>KD.EfCore.From.Database</Title>
     <Authors>David Kozma</Authors>
     <Description>Generates an EfCore project on build from SDK sql project with EfTools Reverse engineering</Description>
