@@ -1,5 +1,5 @@
-[![CI]](https://github.com/k0zi/KD.EfCore.From.Database/actions/workflows/ci.yml)
-[![NuGet]](https://www.nuget.org/packages/KD.EfCore.From.Database/)
+[![CI](https://github.com/shouldly/shouldly/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/k0zi/KD.EfCore.From.Database/actions/workflows/ci.yml)
+[![NuGet](https://img.shields.io/nuget/v/KD.EfCore.From.Database.svg)](https://www.nuget.org/packages/KD.EfCore.From.Database/)
 
 ### What is this?
 
